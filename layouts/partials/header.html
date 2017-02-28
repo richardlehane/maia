@@ -8,7 +8,7 @@
 {{ partial "head_includes.html" . }}
 </head>
 <body>
-<a href="/" class="logo-img"><img src="img/logo.png" alt="Logo"></a>
+<a href="/" class="logo-img"><img src="img/{{ .Site.Params.scheme }}.png" alt="Logo"></a>
 <a class="logo" href="/"><p class="logo-text">{{.Site.Title}}</p></a>
 <div class="menu pure-menu pure-menu-horizontal">
   <ul class="pure-menu-list">{{ range $name, $taxonomy := .Site.Taxonomies.categories}}
