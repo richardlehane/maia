@@ -1,0 +1,7 @@
+{{ partial "header" . }}
+<div class="content pure-g">
+    {{ range first 10 .Data.Pages }}
+    	{{ partial "article" . }}
+    {{ end }}
+</div>
+{{ partial "footer" . }}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<base href="{{ .Site.BaseURL }}">
+<title> {{ .Site.Title }} </title>{{ partial "meta.html" . }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{ if .RSSLink }}<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
+{{ partial "head_includes.html" . }}
+</head>
+<body>
+<a href="/" class="logo-img"><img src="img/logo.png" alt="Logo"></a>
+<a class="logo" href="/"><p class="logo-text">{{.Site.Title}}</p></a>
+<div class="menu pure-menu pure-menu-horizontal">
+  <ul class="pure-menu-list">{{ range $name, $taxonomy := .Site.Taxonomies.categories}}
+    <li class="pure-menu-item"><a href="categories/{{ $name | urlize }}" class="menu-text pure-menu-link">{{ $name }}</a></li>
+	{{end}}
+  </ul>
+</div>
