@@ -4,7 +4,7 @@
 <base href="{{ .Site.BaseURL }}">
 <title> {{ .Site.Title }} </title>{{ partial "meta.html" . }}
 <link rel="canonical" href="{{ .Permalink }}">
-{{ if .RSSLink }}<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
+{{ if .RSSLink }}<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
 {{ partial "head_includes.html" . }}
 </head>
 <body>
