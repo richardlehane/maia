@@ -27,6 +27,17 @@ ga('send', 'pageview');
   <div class="pure-u-1-2 nav">
   <div class="pure-menu pure-menu-horizontal">
     <ul class="pure-menu-list">
+      {{- if len ( where .Site.RegularPages "Section" "about" ) | ne 0 -}}
+      <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+      <a href="/about" class="pure-menu-link">About</a>
+      <ul class="pure-menu-children">
+        {{- range where .Site.RegularPages "Section" "about" -}}
+        <li class="pure-menu-item"><a href="{{ .URL }}" class="menu-text pure-menu-link">{{ .Title }}</a></li>
+        {{- end -}}
+      </ul>
+      </li>
+      {{- end -}}
+      {{- if len .Site.Params.contacts | ne 0 -}}
       <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
       <a href="#" class="pure-menu-link">Contact</a>
       <ul class="pure-menu-children">
@@ -38,6 +49,8 @@ ga('send', 'pageview');
         {{ end }}
         {{- end -}}
       </ul>
+      </li>
+      {{- end -}}
       {{- range $page := .Site.Params.pages -}}
       {{ if len $page | eq 3 }}
       <li class="pure-menu-item"><a href="{{ index $page 1 }}" class="menu-text pure-menu-link"><img alt="{{ index $page 0 }}" src="{{ index $page 2 }}"></a></li>
@@ -45,7 +58,6 @@ ga('send', 'pageview');
       <li class="pure-menu-item"><a href="{{ index $page 1 }}" class="menu-text pure-menu-link">{{ index $page 0 }}</a></li>
       {{ end }}
       {{- end -}}
-      </li>
     </ul>
   </div>
   </div>
