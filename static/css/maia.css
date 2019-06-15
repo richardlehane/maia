@@ -40,7 +40,10 @@ footer {
     box-sizing: border-box;
 }
 .l-box {
-    padding: 1em;
+    padding: 0 1em 0 0;
+}
+.r-box {
+    padding: 0 0 0 1em;
 }
 .box {
     margin: 0 0 25px;
@@ -78,6 +81,10 @@ footer {
     padding-top: 10px;
     padding-bottom: 5px;
 }
+.nav {
+    text-align: right;
+    
+}
 .menu {
     padding-left: 20px;
 }
@@ -91,13 +98,17 @@ footer {
     font-weight: bold;
     margin-bottom: 15px;
 }
+.article-title > a {
+    text-decoration: none;
+    color: black;
+}
 .article-date {
     font-size: 1em;
     font-style: italic;
 }
 .content {
     margin: 0 auto;
-    padding: 0;
+    padding: 0 1em;
     border: 0;
     max-width: 1200px;
     line-height: 1.6em;
