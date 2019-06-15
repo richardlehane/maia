@@ -32,7 +32,7 @@ ga('send', 'pageview');
       <a href="/about" class="pure-menu-link">About</a>
       <ul class="pure-menu-children">
         {{- range where .Site.RegularPages "Section" "about" -}}
-        <li class="pure-menu-item"><a href="{{ .URL }}" class="menu-text pure-menu-link">{{ .Title }}</a></li>
+        <li class="pure-menu-item"><a href="{{ .Permalink }}" class="menu-text pure-menu-link">{{ .Title }}</a></li>
         {{- end -}}
       </ul>
       </li>
