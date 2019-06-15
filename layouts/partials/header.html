@@ -5,9 +5,9 @@
 <title>{{ .Site.Title }}</title>
 {{- partial "meta.html" . -}}
 <link rel="canonical" href="{{ .Permalink }}">
-{{- if .RSSLink -}}
-<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />
-{{- end }}
+{{ range .AlternativeOutputFormats -}}
+<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
 {{- partial "head_includes.html" . -}}
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
