@@ -11,47 +11,45 @@
 {{- partial "head_includes.html" . -}}
 </head>
 <body>
-<div class="pure-g">
-  <div class="pure-u-1-2">
+<header>
+  <div class="nav-l">
     <a href="/" class="logo-img"><img src="img/{{ .Site.Params.scheme }}.png" alt="Logo"></a>
     <a class="logo" href="/"><p class="logo-text">{{ .Site.Title }}</p></a>
   </div>
-  <div class="pure-u-1-2 nav">
-  <div class="pure-menu pure-menu-horizontal">
-    <ul class="pure-menu-list">
-      {{- if len ( where .Site.RegularPages "Section" "about" ) | ne 0 -}}
-      <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-      <a href="/about" class="pure-menu-link">About</a>
-      <ul class="pure-menu-children">
-        {{- range where .Site.RegularPages "Section" "about" -}}
-        <li class="pure-menu-item"><a href="{{ .Permalink }}" class="menu-text pure-menu-link">{{ .Title }}</a></li>
-        {{- end -}}
-      </ul>
-      </li>
+  <div class="nav-r">
+    <ul>
+      {{- range $page := .Site.Params.pages -}}
+      {{ if len $page | eq 3 }}
+      <li><a href="{{ index $page 1 }}"><img alt="{{ index $page 0 }}" src="{{ index $page 2 }}"></a></li>
+      {{ else }}
+      <li><a href="{{ index $page 1 }}">{{ index $page 0 }}</a></li>
+      {{ end }}
       {{- end -}}
       {{- if len .Site.Params.contacts | ne 0 -}}
-      <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-      <a href="#" class="pure-menu-link">Contact</a>
-      <ul class="pure-menu-children">
+      <li>
+      <a href="#">Contact</a>
+      <ul>
         {{- range $contact := .Site.Params.contacts -}}
         {{ if len $contact | eq 3 }}
-        <li class="pure-menu-item"><a href="{{ index $contact 1 }}" class="menu-text pure-menu-link"><i class="fa fa-{{ index $contact 2 }}" aria-hidden="true"></i>&nbsp;{{ index $contact 0 }}</a></li>
+        <li><a href="{{ index $contact 1 }}">{{ partial "twitter" .}}<i class="fa fa-{{ index $contact 2 }}" aria-hidden="true"></i>&nbsp;{{ index $contact 0 }}</a></li>
         {{ else }}
-        <li class="pure-menu-item"><a href="{{ index $contact 1 }}" class="menu-text pure-menu-link">{{ index $contact 0 }}</a></li>
+        <li><a href="{{ index $contact 1 }}">{{ index $contact 0 }}</a></li>
         {{ end }}
         {{- end -}}
       </ul>
       </li>
       {{- end -}}
-      {{- range $page := .Site.Params.pages -}}
-      {{ if len $page | eq 3 }}
-      <li class="pure-menu-item"><a href="{{ index $page 1 }}" class="menu-text pure-menu-link"><img alt="{{ index $page 0 }}" src="{{ index $page 2 }}"></a></li>
-      {{ else }}
-      <li class="pure-menu-item"><a href="{{ index $page 1 }}" class="menu-text pure-menu-link">{{ index $page 0 }}</a></li>
-      {{ end }}
+      {{- if len ( where .Site.RegularPages "Section" "about" ) | ne 0 -}}
+      <li>
+      <a href="/about">About</a>
+      <ul>
+        {{- range where .Site.RegularPages "Section" "about" -}}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{- end -}}
+      </ul>
+      </li>
       {{- end -}}
     </ul>
   </div>
-  </div>
-</div>
+</header>
 
