@@ -8,7 +8,8 @@
 {{ range .AlternativeOutputFormats -}}
 <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
-{{- partial "head_includes.html" . -}}
+<link rel="icon" type="image/png" href="/img/{{ .Site.Params.scheme }}.png">
+<link rel="stylesheet" href="/css/maia.css">
 </head>
 <body>
 <header>
@@ -18,27 +19,6 @@
   </div>
   <div class="nav-r">
     <ul>
-      {{- range $page := .Site.Params.pages -}}
-      {{ if len $page | eq 3 }}
-      <li><a href="{{ index $page 1 }}"><img alt="{{ index $page 0 }}" src="{{ index $page 2 }}"></a></li>
-      {{ else }}
-      <li><a href="{{ index $page 1 }}">{{ index $page 0 }}</a></li>
-      {{ end }}
-      {{- end -}}
-      {{- if len .Site.Params.contacts | ne 0 -}}
-      <li>
-      <a href="#">Contact</a>
-      <ul>
-        {{- range $contact := .Site.Params.contacts -}}
-        {{ if len $contact | eq 3 }}
-        <li><a href="{{ index $contact 1 }}">{{ partial "twitter" .}}<i class="fa fa-{{ index $contact 2 }}" aria-hidden="true"></i>&nbsp;{{ index $contact 0 }}</a></li>
-        {{ else }}
-        <li><a href="{{ index $contact 1 }}">{{ index $contact 0 }}</a></li>
-        {{ end }}
-        {{- end -}}
-      </ul>
-      </li>
-      {{- end -}}
       {{- if len ( where .Site.RegularPages "Section" "about" ) | ne 0 -}}
       <li>
       <a href="/about">About</a>
@@ -49,7 +29,35 @@
       </ul>
       </li>
       {{- end -}}
+      {{- if len .Site.Params.contacts | ne 0 -}}
+      <li>
+      <a href="#">Contact</a>
+      <ul>
+        {{- range $contact := .Site.Params.contacts -}}
+        <li><a href="{{ index $contact 1 }}">{{ index $contact 0 }}</a></li>
+        {{- end -}}
+      </ul>
+      </li>
+      {{- end -}}
+      {{- range $page := .Site.Params.pages -}}
+      {{ if len $page | eq 3 }}
+      <li><a href="{{ index $page 1 }}"><img alt="{{ index $page 0 }}" src="{{ index $page 2 }}"></a></li>
+      {{ else }}
+      <li><a href="{{ index $page 1 }}">{{ index $page 0 }}</a></li>
+      {{ end }}
+      {{- end -}}
     </ul>
+  </div>
+  <div class="menu">
+    {{ if or .IsHome (eq .Section "about") (eq .Section "post") (eq .Section "categories")}}
+    <ul> 
+    {{- range $name, $taxonomy := .Site.Taxonomies.categories -}}
+      <li>
+        <a href="categories/{{ $name | urlize }}">{{ $name }}</a>
+      </li>
+    {{- end -}}
+    </ul>
+    {{- end -}}
   </div>
 </header>
 

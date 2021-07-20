@@ -1,6 +1,116 @@
+/* reset */
+
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.nav-l {
+  grid-column: span 6;
+}
+
+.nav-r {
+  grid-column: span 6;
+  text-align: right;
+}
+
+div.nav-r>ul {
+  float: right;
+  margin-right: 10px;
+}
+
+.nav-r li {
+  float: left;
+  list-style-type: none;
+  position: relative;
+  background-color: white;
+}
+
+.nav-r li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 45px;
+  text-decoration: none;
+}
+
+.nav-r li a:link, a:visited {
+ color: #777;
+}
+
+.nav-r li a:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.nav-r li ul {
+  display: none;
+  position: absolute;
+}
+
+.nav-r li:hover ul {
+  display: block;
+}
+
+.menu {
+  grid-column: span 12;
+  background-color: #CFD8DC;
+  display:block;
+  height: 30px;
+}
+
+.menu li {
+  float: left;
+  list-style-type: none;
+}
+
+.menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: lowercase;
+  font-weight: 1200;
+  width: 90px;
+  height: 30px;
+  text-decoration: none;
+}
+
+.menu a:link, a:visited {
+ color: #777;
+}
+
+.menu-text {
+	color: #607D8B;
+}
+.logo-text {
+	color: #263238;
+	font-family: 'Roboto Slab', serif;
+}
+.signature {
+	color: #607D8B;
+	font-family: 'Gochi Hand', serif;
+}
+
+@media screen and (max-width: 575px) {
+  .nav-l {
+    grid-column: span 12;
+  }
+  .nav-r {
+    grid-column: span 12;
+  }
+}
+
 html {
     font-size: 16px;
     font-family: Roboto,"Helvetica Neue",sans-serif;
+    background-color: white;
 }
 
 h3 {
@@ -15,7 +125,7 @@ code {
 
 pre {
     background: #EEE;
-    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-family: Courier, monospace;
     line-height: 1.2em;
     overflow-x: scroll;
     padding: 1.2em;
@@ -80,15 +190,6 @@ footer {
 
 .nav {
     text-align: right;
-}
-
-.menu {
-    padding-left: 20px;
-}
-
-.menu-text {
-    text-transform: lowercase;
-    font-weight: 1200;
 }
 
 .article-title {
