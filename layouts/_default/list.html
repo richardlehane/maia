@@ -5,7 +5,9 @@
     	{{ partial "article" . }}
     {{ end }}
   {{ else }}
+   {{ range first 1 .Site.RegularPages.ByDate }}
      {{ partial "article" . }}
+   {{ end }}
   {{ end }}
 </main>
 {{ partial "footer" . }}
