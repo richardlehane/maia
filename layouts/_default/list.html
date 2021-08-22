@@ -5,8 +5,12 @@
       {{ partial "article" . }}
     {{ end }}
   {{ else }}
-    {{ range where .Pages "Section" "post" }}
-    	{{ partial "article" . }}
+    {{ if len (where .Pages "Section" "post") | eq 0 }}
+      {{ partial "article" . }}
+    {{ else }}
+      {{ range where .Pages "Section" "post" }}
+    	  {{ partial "article" . }}
+      {{ end }}
     {{ end }}
   {{ end }}
 </main>
