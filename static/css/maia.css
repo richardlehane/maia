@@ -7,6 +7,8 @@
   box-sizing: border-box;
 }
 
+/* header */
+
 header {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -23,7 +25,6 @@ header {
 
 div.nav-r>ul {
   float: right;
-  margin-right: 10px;
 }
 
 .nav-r li {
@@ -113,9 +114,37 @@ html {
     background-color: white;
 }
 
+main {
+  line-height: 1.6em;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 15px;
+}
+
+h1 a {
+  text-decoration: none;
+}
+
 h3 {
     text-transform: uppercase;
 }
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+ul {
+  padding: 0 40px;
+}
+
 
 code {
     background: #EEE;
