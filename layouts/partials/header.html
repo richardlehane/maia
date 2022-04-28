@@ -13,11 +13,11 @@
 </head>
 <body>
 <header>
-  <div class="nav-l">
-    <a href="/" class="logo-img"><img src="img/{{ .Site.Params.scheme }}.png" alt="Logo"></a>
-    <a class="logo" href="/"><p class="logo-text">{{ .Site.Title }}</p></a>
+  <div class="logo">
+    <a href="/"><img src="img/{{ .Site.Params.scheme }}.png" alt="Logo"></a>
+    <a href="/"><p>{{ .Site.Title }}</p></a>
   </div>
-  <div class="nav-r">
+  <div class="nav">
     <ul>
       {{- if len ( where .Site.RegularPages "Section" "about" ) | ne 0 -}}
       <li>

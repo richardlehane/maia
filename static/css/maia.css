@@ -7,6 +7,14 @@
   box-sizing: border-box;
 }
 
+/* general */
+
+html {
+  font-size: 16px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  background-color: white;
+}
+
 /* header */
 
 header {
@@ -14,27 +22,60 @@ header {
   grid-template-columns: repeat(12, 1fr);
 }
 
-.nav-l {
+/* header - nav */
+
+@media screen and (max-width: 575px) {
+  .logo {
+    grid-column: span 12;
+  }
+  .nav {
+    grid-column: span 12;
+  }
+}
+
+.logo {
   grid-column: span 6;
 }
 
-.nav-r {
+.logo a {
+  text-decoration: none;
+}
+
+.logo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  vertical-align: middle;
+}
+
+.logo p {
+  font-size: 2em;
+  margin: 0;
+  margin-left: 60px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.nav {
   grid-column: span 6;
   text-align: right;
 }
 
-div.nav-r>ul {
+div.nav>ul {
   float: right;
+  margin-right: 10px;
 }
 
-.nav-r li {
+.nav li {
   float: left;
   list-style-type: none;
   position: relative;
   background-color: white;
 }
 
-.nav-r li a {
+.nav li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,22 +84,24 @@ div.nav-r>ul {
   text-decoration: none;
 }
 
-.nav-r li a:link, a:visited {
+.nav li a:link, a:visited {
  color: #777;
 }
 
-.nav-r li a:hover {
+.nav li a:hover {
   background-color: rgb(230, 230, 230);
 }
 
-.nav-r li ul {
+.nav li ul {
   display: none;
   position: absolute;
 }
 
-.nav-r li:hover ul {
+.nav li:hover ul {
   display: block;
 }
+
+/* header - menu */
 
 .menu {
   grid-column: span 12;
@@ -99,25 +142,12 @@ div.nav-r>ul {
 	font-family: 'Gochi Hand', serif;
 }
 
-@media screen and (max-width: 575px) {
-  .nav-l {
-    grid-column: span 12;
-  }
-  .nav-r {
-    grid-column: span 12;
-  }
-}
-
-html {
-    font-size: 16px;
-    font-family: Roboto,"Helvetica Neue",sans-serif;
-    background-color: white;
-}
+/* main */
 
 main {
   line-height: 1.6em;
   margin: 0 auto;
-  padding: 0 1em;
+  padding: 1em;
 }
 
 h1 {
@@ -132,7 +162,8 @@ h1 a {
 }
 
 h3 {
-    text-transform: uppercase;
+  font-family: Cantarell, Helvetica, sans-serif;
+  text-transform: uppercase;
 }
 
 p {
@@ -141,10 +172,9 @@ p {
   margin-block-end: 1em;
 }
 
-ul {
-  padding: 0 40px;
+main ul {
+  padding-left: 2.5em;
 }
-
 
 code {
     background: #EEE;
@@ -194,31 +224,6 @@ footer {
 
 .centre {
     text-align: center;
-}
-
-.logo-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 60px;
-    width: 60px;
-    vertical-align: middle;
-}
-
-.logo {
-    text-decoration: none;
-}
-
-.logo-text {
-    font-size: 2em;
-    margin: 0;
-    margin-left: 60px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-}
-
-.nav {
-    text-align: right;
 }
 
 .article-title {
