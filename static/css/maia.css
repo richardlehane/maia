@@ -161,7 +161,7 @@ h1 a {
 }
 
 h1 a:link, a:visited {
-  color: #777;
+  color: black;
 }
 
 h2 {
@@ -171,9 +171,25 @@ h2 {
   margin-bottom: 0.75em;
 }
 
+h2 a {
+  text-decoration: none;
+}
+
+h2 a:link, a:visited {
+  color: black;
+}
+
 h3 {
   font-family: Cantarell, Helvetica, sans-serif;
   text-transform: uppercase;
+}
+
+h3 a {
+  text-decoration: none;
+}
+
+h3 a:link, a:visited {
+  color: black;
 }
 
 p {
@@ -211,11 +227,27 @@ footer {
     text-align: center;
 }
 
-.l-box {
+.cols {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@media screen and (max-width: 575px) {
+  .l-col {
+    grid-column: span 12;
+  }
+  .r-col {
+    grid-column: span 12;
+  }
+}
+
+.l-col {
+    grid-column: span 8;
     padding: 0 1em 0 0;
 }
 
-.r-box {
+.r-col {
+    grid-column: span 4;
     padding: 0 0 0 1em;
 }
 
