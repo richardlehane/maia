@@ -1,16 +1,10 @@
 {{ partial "header" . }}
 <main>
-  {{ if .IsHome }}
-    {{ range last 1 .Site.RegularPages.ByDate }}
-      {{ partial "article" . }}
-    {{ end }}
+  {{ if len (where .Pages "Section" "post") | eq 0 }}
+    {{ partial "article" . }}
   {{ else }}
-    {{ if len (where .Pages "Section" "post") | eq 0 }}
+    {{ range where .Site.RegularPages "Section" "post" }}
       {{ partial "article" . }}
-    {{ else }}
-      {{ range where .Pages "Section" "post" }}
-    	  {{ partial "article" . }}
-      {{ end }}
     {{ end }}
   {{ end }}
 </main>
